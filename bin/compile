@@ -115,6 +115,7 @@ if [ "$BUILD_COMMAND" = "" ]; then
 fi
 
 echo "       Running: $BUILD_COMMAND"
+echo "       -----------------------"
 
 cd $BUILD_DIR
 PATH=.lein/bin:$PATH LEIN_JVM_OPTS="-Xmx500m -Duser.home=$BUILD_DIR" \
