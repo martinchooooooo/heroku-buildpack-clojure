@@ -119,8 +119,8 @@ echo "       -----------------------"
 
 cd $BUILD_DIR
 PATH=.lein/bin:$PATH LEIN_JVM_OPTS="-Xmx500m -Duser.home=$BUILD_DIR"
-lein lesscss # Compile LESS files
-lein cljsbuild once
+# Compile our cljs and lesscss files
+lein with-profile production do cljsbuild once, lesscss
 $BUILD_COMMAND 2>&1 | sed -u 's/^/       /'
 if [ "${PIPESTATUS[*]}" != "0 0" ]; then
   echo " !     Failed to build."
